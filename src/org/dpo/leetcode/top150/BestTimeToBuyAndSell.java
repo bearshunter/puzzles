@@ -1,4 +1,4 @@
-package org.dpo.lc.top150;
+package org.dpo.leetcode.top150;
 
 public class BestTimeToBuyAndSell {
 

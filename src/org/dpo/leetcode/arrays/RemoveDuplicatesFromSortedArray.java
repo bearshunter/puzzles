@@ -1,4 +1,4 @@
-package org.dpo.lc.top150.arrays;
+package org.dpo.leetcode.arrays;
 
 public class RemoveDuplicatesFromSortedArray {
 

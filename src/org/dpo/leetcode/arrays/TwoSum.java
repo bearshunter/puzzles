@@ -1,4 +1,4 @@
-package org.dpo.leetcode.top150;
+package org.dpo.leetcode.arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;

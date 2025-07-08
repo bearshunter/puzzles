@@ -1,6 +1,6 @@
-package org.dpo.leetcode.top150;
+package org.dpo.leetcode.arrays;
 
-public class BestTimeToBuyAndSell {
+public class BestTimeToBuyAndSell2 {
 
     public static void main(String[] args) {
         int[] prices = new int[]{2, 1, 2, 0, 1};

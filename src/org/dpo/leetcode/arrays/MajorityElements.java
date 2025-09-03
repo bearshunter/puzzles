@@ -1,8 +1,11 @@
 package org.dpo.leetcode.arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class MajorityElements {
 
@@ -34,5 +37,14 @@ public class MajorityElements {
         }
 
         return result;
+    }
+
+    public int majorityElementStreams(int[] nums) {
+        return Arrays.stream(nums).boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .get()
+                .getKey();
     }
 }

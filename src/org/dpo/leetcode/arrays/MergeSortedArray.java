@@ -12,27 +12,19 @@ public class MergeSortedArray {
         System.out.println(Arrays.toString(nums1));
     }
 
-    public static void merge(int[] firstArray, int elementsInFirstArray, int[] secondArray, int elementsInSecondArray) {
-        int pointerOnFirstArray = elementsInFirstArray - 1;
-        int pointerOnSecondArray = elementsInSecondArray - 1;
-        int pointerForResultArray = elementsInFirstArray + elementsInSecondArray - 1; // or firstArray.length - 1
-
-        while (pointerOnSecondArray >= 0 && pointerOnFirstArray >= 0) {
-
-            if (firstArray[pointerOnFirstArray] > secondArray[pointerOnSecondArray]) {
-                firstArray[pointerForResultArray] = firstArray[pointerOnFirstArray];
-                pointerOnFirstArray--;
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int last = m + n - 1;
+        int p1 = m - 1;
+        int p2 = n - 1;
+        while (p2 >= 0) {
+            if (p1 >= 0 && nums1[p1] > nums2[p2]) {
+                nums1[last] = nums1[p1];
+                p1--;
             } else {
-                firstArray[pointerForResultArray] = secondArray[pointerOnSecondArray];
-                pointerOnSecondArray--;
+                nums1[last] = nums2[p2];
+                p2--;
             }
-            pointerForResultArray--;
-        }
-
-        while (pointerOnSecondArray >= 0) {
-            firstArray[pointerForResultArray] = secondArray[pointerOnSecondArray];
-            pointerOnSecondArray--;
-            pointerForResultArray--;
+            last--;
         }
     }
 }

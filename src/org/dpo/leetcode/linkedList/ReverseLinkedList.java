@@ -2,6 +2,8 @@ package org.dpo.leetcode.linkedList;
 import org.dpo.exp.ListNode;
 import  org.dpo.exp.MyLinkedList;
 
+import java.util.HashSet;
+
 
 public class ReverseLinkedList {
 
@@ -16,19 +18,25 @@ public class ReverseLinkedList {
         reverseList(myLinkedList.getHead());
     }
 
-    public static ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
+    public static ListNode reverseList(ListNode current) {
 
-        while (curr != null) {
-            ListNode nextNode = curr.getNext(); // запоминаем следующий
-            curr.setNext(prev);              // swap the link
-            // move prev
-            prev = curr;
-            curr = nextNode;
+        ListNode prev = null;
+        while(current != null){
+            ListNode tmp = current.next; //remember next element, because we will have to iterate on it
+
+            current.next = prev; //rewrite link, set a new value. it will be opposite element.
+
+            //make iteration possible, set current element as previos and current element as next
+            prev = current;
+
+            current = tmp;
+
         }
 
         return prev;
+
+
+
     }
 
 }

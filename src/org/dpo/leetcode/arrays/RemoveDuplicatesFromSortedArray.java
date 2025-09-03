@@ -3,18 +3,20 @@ package org.dpo.leetcode.arrays;
 public class RemoveDuplicatesFromSortedArray {
 
     private static int removeDuplicates(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
+        if(nums.length == 1){
+            return 1;
         }
-        int writeIndex = 1;
-        for (int readIndex = 1; readIndex < nums.length; readIndex++) {
-            if (nums[readIndex] != nums[writeIndex - 1]) {
-                nums[writeIndex] = nums[readIndex];
-                writeIndex++;
+
+        int k = 1;
+
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i] != nums[k-1]){
+                nums[k] = nums[i];
+                k++;
             }
+
         }
-        System.out.println(nums);
-        return writeIndex;
+        return k;
     }
 
 

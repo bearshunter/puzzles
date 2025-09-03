@@ -9,15 +9,25 @@ public class Exam {
 //    Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 
     public static void main(String[] args) {
-        int[] nums1 = {0,0,1,1,1,2,2,3,3,4};
+        int[] nums1 = {1,2,3,5,6};
 
-        System.out.println( removeDuplicates(nums1));
+        System.out.println( binarySearch(nums1));
         System.out.println(Arrays.toString(nums1));
     }
 
-    public static  int removeDuplicates(int[] nums) {
-        int res = 0;
-        for (int i = 0; i < nums.length - 1; i++) {
+    public static  int binarySearch(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length-1;
+        while (left == right) {
+            int mid = left + (right - left) /2;
+            if(nums[mid] == target){
+                return mid;
+            }
+            if(nums[mid] > target){
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
 
         }
         return res;

@@ -11,7 +11,7 @@ public class Exam {
     public static void main(String[] args) {
         int[] nums1 = {1,2,3,5,6};
 
-        System.out.println( binarySearch(nums1));
+        System.out.println( binarySearch(nums1,6));
         System.out.println(Arrays.toString(nums1));
     }
 
@@ -30,7 +30,7 @@ public class Exam {
             }
 
         }
-        return res;
+        return -1;
     }
 
 

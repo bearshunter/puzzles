@@ -15,16 +15,14 @@ public class BestTimeToBuyAndSell {
             return 0;
         }
 
-        int minPrice = prices[0];
+        int left = 0;
         int maxProfit = 0;
-
-        for (int i = 1; i < prices.length; i++) {
-            final int todayPrice = prices[i];
-            if (todayPrice < minPrice) {
-                minPrice = todayPrice;
+        for (int right = 1; right < prices.length; right++) {
+            if (prices[left] < prices[right]) {
+                int profit = prices[right] - prices[left];
+                maxProfit = Math.max(profit, maxProfit);
             } else {
-                int currentProfit = todayPrice - minPrice;
-                maxProfit = Math.max(maxProfit, currentProfit);
+                left = right;
             }
         }
 

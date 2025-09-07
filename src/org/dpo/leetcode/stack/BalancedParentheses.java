@@ -5,25 +5,23 @@ import java.util.Deque;
 
 public class BalancedParentheses {
     public static void main(String[] args) {
-        String s = "(())";
+        String s = "((())";
         boolean valid = isValid(s);
         System.out.println(valid);
     }
 
     public static boolean isValid(String s) {
+        //()
         Deque<Character> stack = new ArrayDeque<>();
-        for (char c : s.toCharArray()) {
-            if(c== '(') {
-                stack.push(c);
+        var sArr = s.toCharArray();
+        for (char ch : sArr) {
+            if (ch == '(') {
+                stack.push(ch);
             } else {
-                if(stack.isEmpty()){
+                var top = stack.pop();
+                if (top == '(' && ch != ')') {
                     return false;
                 }
-                char top = stack.pop();
-                if( c == ')' && top != '(') {
-                    return false;
-                }
-
             }
         }
 

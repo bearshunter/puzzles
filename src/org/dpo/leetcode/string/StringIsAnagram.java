@@ -54,13 +54,26 @@ public class StringIsAnagram {
     }
 
 
-    public static boolean isAnagramWithUnicode(String s, String t) {
-        if (s.length() != t.length())
+    public boolean isAnagramOnlyLetters(String s, String t) {
+        if (s.length() != t.length()) {
             return false;
+        }
 
-        int sumS = s.chars().sum();
-        int sumT = t.chars().sum();
+        int[] count = new int[26]; //[0,0,0,....]
+        var sArr = s.toCharArray();
+        var tArr = t.toCharArray();
+        for (int i = 0; i < s.length(); i++) {
+            count[sArr[i] - 'a']++;//[1,0,0]
+            count[tArr[i] - 'a']--;//[-1,0,0]
+        }
 
-        return sumS == sumT;
+        for (int c : count) {
+            if (c != 0) {
+                return false;
+            }
+
+        }
+        return true;
+
     }
 }
